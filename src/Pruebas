@@ -1,0 +1,9 @@
+					<tr>
+			<td>Crear tarea:</td>
+			<td id="tarea"><form action="crearTarea" method="POST">
+					<input type="text" name="tarea" size="15"
+						value="<jsp:getProperty property="tarea" name="user"/>"> 
+					<input type="submit" value="Crear tarea">
+				</form>
+			</td>
+		</tr>
