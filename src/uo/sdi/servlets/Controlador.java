@@ -130,6 +130,10 @@ public class Controlador extends javax.servlet.http.HttpServlet {
 		mapaRegistrado.put("listarCategorias", new ListarCategoriasAction());//Se puede quitar
 		mapaRegistrado.put("principalUsuario", new VolverAtrasAction());
 		mapaRegistrado.put("listarTareas", new ListarTareasAction());
+		mapaRegistrado.put("eliminarCategoria", new EliminarCategoriaAction());
+		mapaRegistrado.put("añadirCategoria", new AñadirCategoriaAction());
+		mapaRegistrado.put("acabarTarea", new AcabarTareaAction());
+		mapaRegistrado.put("modificarCategoria", new ModificarCategoriaAction());
 		mapaDeAcciones.put("USUARIO", mapaRegistrado);
 		
 		Map<String,Accion> mapaAdmin=new HashMap<String,Accion>();
@@ -218,6 +222,26 @@ public class Controlador extends javax.servlet.http.HttpServlet {
 		resultadoYJSP.put("FRACASO","/login.jsp");
 		opcionResultadoYJSP.put("principalUsuario", resultadoYJSP);
 		
+		resultadoYJSP=new HashMap<String, String>();
+		resultadoYJSP.put("EXITO","/listarTareas.jsp");
+		resultadoYJSP.put("FRACASO","/login.jsp");
+		opcionResultadoYJSP.put("eliminarCategoria", resultadoYJSP);
+		
+		resultadoYJSP=new HashMap<String, String>();
+		resultadoYJSP.put("EXITO","/listarTareas.jsp");
+		resultadoYJSP.put("FRACASO","/login.jsp");
+		opcionResultadoYJSP.put("añadirCategoria", resultadoYJSP);
+		
+		resultadoYJSP=new HashMap<String, String>();
+		resultadoYJSP.put("EXITO","/listarTareas.jsp");
+		resultadoYJSP.put("FRACASO","/login.jsp");
+		opcionResultadoYJSP.put("acabarTarea", resultadoYJSP);
+		
+		resultadoYJSP=new HashMap<String, String>();
+		resultadoYJSP.put("EXITO","/listarTareas.jsp");
+		resultadoYJSP.put("FRACASO","/login.jsp");
+		opcionResultadoYJSP.put("modificarCategoria", resultadoYJSP);
+			
 		mapaDeNavegacion.put("USUARIO",opcionResultadoYJSP);
 		
 		// Crear mapas auxiliares vacíos

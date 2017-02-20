@@ -2,6 +2,8 @@ package uo.sdi.dto;
 
 import java.util.Date;
 
+import uo.sdi.business.Services;
+import uo.sdi.business.exception.BusinessException;
 import alb.util.date.DateUtil;
 
 public class Task {
@@ -12,9 +14,24 @@ public class Task {
 	private Date created = DateUtil.today();
 	private Date planned;
 	private Date finished;
-	
+	@SuppressWarnings("unused")
+	private boolean pasado;
+	@SuppressWarnings("unused")
+	private String category;
 	private Long categoryId;
 	private Long userId;
+	
+	public String getCategory(){
+		 try {
+			return Services.getTaskService().findCategoryById(categoryId).getName();
+		} catch (BusinessException e) {
+			e.printStackTrace();
+		}
+		return "";
+	}
+	public boolean getPasado(){
+		return (planned!=null)&&(planned.compareTo(DateUtil.today())<0);
+	}
 	
 	public Long getId() {
 		return id;
