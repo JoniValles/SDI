@@ -142,8 +142,9 @@ public class Controlador extends javax.servlet.http.HttpServlet {
 		mapaAdmin.put("modificarStatus", new ModificarStatusAction());
 		/* Futura impl
 		mapaAdmin.put("ordenarUsuarios", new OrdenarUsuariosAction());
-		mapaAdmin.put("eliminarUsuario", new EliminarUsuarioAction());
 		*/
+		mapaAdmin.put("eliminarUsuario", new EliminarUsuarioAction());
+
 		mapaAdmin.put("principalUsuario", new VolverAtrasAction());
 		mapaAdmin.put("listarCategorias", new ListarCategoriasAction());
 		mapaDeAcciones.put("ADMIN", mapaAdmin);
@@ -267,12 +268,12 @@ public class Controlador extends javax.servlet.http.HttpServlet {
 		resultadoYJSP.put("EXITO","/listarUsuarios.jsp");
 		resultadoYJSP.put("FRACASO","/listarUsuarios.jsp");
 		opcionResultadoYJSP.put("ordenarUsuarios", resultadoYJSP);
-		
+		*/
 		resultadoYJSP=new HashMap<String, String>();
 		resultadoYJSP.put("EXITO","/listarUsuarios.jsp");
 		resultadoYJSP.put("FRACASO","/listarUsuarios.jsp");
 		opcionResultadoYJSP.put("eliminarUsuario", resultadoYJSP);
-		*/
+		
 		
 		resultadoYJSP=new HashMap<String, String>();
 		resultadoYJSP.put("EXITO","/login.jsp");

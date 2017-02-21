@@ -29,6 +29,7 @@
 						<!--  SI el usuario no es un admin, se puede desactivar-->
 						<c:if test="${entry.isAdmin==false}">
 							<td><a href="modificarStatus?id=${entry.id}=${entry.login}">${entry.status}</a></td>
+							<td><a href="eliminarUsuario?id=${entry.id}=${entry.login}" onclick="return confirm('seguro que desea eliminar al usuario?')">Eliminar</a></td>
 						</c:if>
 						
 					</tr>
