@@ -23,8 +23,9 @@
 	</div>
 <div id="tabs">
   <ul>
-  		<form action="añadirTarea" method="POST">
-		<li><table style="width: 50%">
+  		
+	<li><table style="width: 50%">
+			<form action="añadirTarea" method="POST">
 				<tr>
 					<th>Nueva Tarea:</th>
 					<td id="Tarea"><input type="text" name="Tarea" value=""></td>
@@ -32,9 +33,10 @@
 				<tr>
 					<td/>
 					<td><input type="submit" value="Enviar"></td>
-				</tr>				
-			</table>			
-		</form>
+				</tr>	
+			</form>
+		</table>			
+	 </li>
     <li><a href="#tabs-1">Hoy</a></li>
     <li><a href="#tabs-2">Semana</a></li>
     <li><a href="#tabs-3">Inbox</a></li>
