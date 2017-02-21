@@ -1,4 +1,5 @@
 <%@ page contentType="text/html" pageEncoding="UTF-8" %>
+<%@ include file="comprobarNavegacion.jsp"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
@@ -16,8 +17,24 @@
   </script>
 </head>
 <body>
+
+	<div>
+
+	</div>
 <div id="tabs">
   <ul>
+  		<form action="añadirTarea" method="POST">
+		<li><table style="width: 50%">
+				<tr>
+					<th>Nueva Tarea:</th>
+					<td id="Tarea"><input type="text" name="Tarea" value=""></td>
+				</tr>
+				<tr>
+					<td/>
+					<td><input type="submit" value="Enviar"></td>
+				</tr>				
+			</table>			
+		</form>
     <li><a href="#tabs-1">Hoy</a></li>
     <li><a href="#tabs-2">Semana</a></li>
     <li><a href="#tabs-3">Inbox</a></li>
@@ -87,6 +104,8 @@
 							</font>
 						</c:if>		
 						</td>
+						<!-- Ref al editarTarea.jsp -->
+						<td>${entry.title}(<a id="editarTarea${entry.title}" href="editarTarea?id=${entry.id}"  >Edit</a>)</td> 
 						<td><c:out value="${entry.title}"/></td>	
 						<td><c:out value="${entry.comments}"/></td>	
 						<td><c:out value="${entry.created}"/></td>
@@ -211,5 +230,9 @@
 
 	
 </div>
+		<center>
+			<a href="principalUsuario.jsp">Atrás</a>
+			<%@ include file="pieDePagina.jsp"%>
+		</center>
 </body>
 </html>
