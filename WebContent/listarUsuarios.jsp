@@ -14,6 +14,9 @@
 		<div>
 			<h1 align="center">Usuarios</h1>
 			<table align="center">
+							<th><a href="ordenarUsuarios?id=login">LOGIN</a></th>
+					<th><a href="ordenarUsuarios?id=email">EMAIL</a></th>
+					<th><a href="ordenarUsuarios?id=status">STATUS</a></th>
 
 				<c:forEach var="entry" items="${listaUsuarios}" varStatus="i">
 					<tr class="row" id="item_${i.index}">
@@ -28,8 +31,8 @@
 						
 						<!--  SI el usuario no es un admin, se puede desactivar-->
 						<c:if test="${entry.isAdmin==false}">
-							<td><a href="modificarStatus?id=${entry.id}=${entry.login}">${entry.status}</a></td>
-							<td><a href="eliminarUsuario?id=${entry.id}=${entry.login}" onclick="return confirm('seguro que desea eliminar al usuario?')">Eliminar</a></td>
+							<td><a id="status_link_id" href="modificarStatus?id=${entry.id}=${entry.login}">${entry.status}</a></td>
+							<td><a id="delete_link_id${entry.id}" href="eliminarUsuario?id=${entry.id}=${entry.login}" onclick="return confirm('seguro que desea eliminar al usuario?')">Eliminar</a></td>
 						</c:if>
 						
 					</tr>

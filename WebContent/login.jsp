@@ -4,18 +4,24 @@
 <body>
   <form action="validarse" method="post" name="validarse_form_name">
 
- 	<center><h1>Inicie sesión</h1></center>
+ 	<center><h1>TaskManager - Inicie sesión</h1></center>
  	<hr><br>
  	<table align="center">
     	<tr> 
-    		<td align="right">Su identificador de usuario</td>
+    		<td align="right"><span></span>Su identificador de usuario</td>
 	    	<td><input type="text" name="nombreUsuario" align="right" size="15"></td>
-	    	<td><input type="submit" value="Enviar"/></td>
+	    	
       	</tr>
+      					<tr>
+					<th align="left"><span></span>Su contraseña:</th>
+					<td colspan="3"><input id="password" type="password"
+						name="password" align="left" size="15"></td>
+						<td><input id="validar_button_id" type="submit" value="Enviar"/></td>
+				</tr>
       					<tr>
 					<td/>
 					<td>
-					<a id="registrar_link_id" align="left" href="accesoRegistroUsuario">Registrarse</a>
+					<a id="registrarse_link_id" align="left" href="accesoRegistroUsuario">Registrarse</a>
 					</td>
 				</tr>
       	

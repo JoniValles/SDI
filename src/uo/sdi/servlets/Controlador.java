@@ -156,8 +156,8 @@ public class Controlador extends javax.servlet.http.HttpServlet {
 		mapaRegistrado.put("eliminarCategoria", new EliminarCategoriaAction());
 		mapaRegistrado.put("añadirCategoria", new AñadirCategoriaAction());
 		mapaRegistrado.put("acabarTarea", new AcabarTareaAction());
-		mapaRegistrado
-				.put("modificarCategoria", new ModificarCategoriaAction());
+		mapaRegistrado.put("modificarCategoria", new ModificarCategoriaAction());
+		mapaRegistrado.put("irEditarTarea", new IrEditarTareaAction());
 		mapaRegistrado.put("editarTarea", new EditarTareaAction());
 		mapaDeAcciones.put("USUARIO", mapaRegistrado);
 
@@ -165,6 +165,8 @@ public class Controlador extends javax.servlet.http.HttpServlet {
 		mapaAdmin.put("cerrarSesion", new CerrarSesionAction());
 		mapaAdmin.put("listarUsuarios", new ListarUsuariosAction());
 		mapaAdmin.put("modificarStatus", new ModificarStatusAction());
+		mapaAdmin.put("ordenarUsuarios", new OrdenarUsuariosAction());
+
 		/*
 		 * Futura impl mapaAdmin.put("ordenarUsuarios", new
 		 * OrdenarUsuariosAction());
@@ -173,6 +175,7 @@ public class Controlador extends javax.servlet.http.HttpServlet {
 
 		mapaAdmin.put("principalUsuario", new VolverAtrasAction());
 		mapaAdmin.put("listarCategorias", new ListarCategoriasAction());
+		mapaAdmin.put("irEditarTarea", new IrEditarTareaAction());
 		mapaDeAcciones.put("ADMIN", mapaAdmin);
 	}
 
@@ -241,7 +244,7 @@ public class Controlador extends javax.servlet.http.HttpServlet {
 
 		resultadoYJSP = new HashMap<String, String>();
 		resultadoYJSP.put("EXITO", "/listarTareas.jsp");
-		resultadoYJSP.put("FRACASO", "/login.jsp");
+		resultadoYJSP.put("FRACASO", "/principalUsuario.jsp");
 		opcionResultadoYJSP.put("listarTareas", resultadoYJSP);
 
 		resultadoYJSP = new HashMap<String, String>();
@@ -251,12 +254,12 @@ public class Controlador extends javax.servlet.http.HttpServlet {
 
 		resultadoYJSP = new HashMap<String, String>();
 		resultadoYJSP.put("EXITO", "/listarTareas.jsp");
-		resultadoYJSP.put("FRACASO", "/login.jsp");
+		resultadoYJSP.put("FRACASO", "/principalUsuario.jsp");
 		opcionResultadoYJSP.put("eliminarCategoria", resultadoYJSP);
 
 		resultadoYJSP = new HashMap<String, String>();
 		resultadoYJSP.put("EXITO", "/listarTareas.jsp");
-		resultadoYJSP.put("FRACASO", "/login.jsp");
+		resultadoYJSP.put("FRACASO", "/principalUsuario.jsp");
 		opcionResultadoYJSP.put("añadirCategoria", resultadoYJSP);
 
 		resultadoYJSP = new HashMap<String, String>();
@@ -276,9 +279,20 @@ public class Controlador extends javax.servlet.http.HttpServlet {
 		opcionResultadoYJSP.put("añadirTarea", resultadoYJSP);
 
 		// Editar tareas
+		/*
 		resultadoYJSP = new HashMap<String, String>();
 		resultadoYJSP.put("EXITO", "/editarTarea.jsp");
 		resultadoYJSP.put("FRACASO", "/listarTareas.jsp");
+		opcionResultadoYJSP.put("editarTarea", resultadoYJSP); */
+		
+		resultadoYJSP=new HashMap<String, String>();
+		resultadoYJSP.put("EXITO","/editarTarea.jsp");
+		resultadoYJSP.put("FRACASO","/principalUsuario.jsp");
+		opcionResultadoYJSP.put("irEditarTarea", resultadoYJSP);
+		
+		resultadoYJSP=new HashMap<String, String>();
+		resultadoYJSP.put("EXITO","/listarTareas.jsp");
+		resultadoYJSP.put("FRACASO","/principalUsuario.jsp");
 		opcionResultadoYJSP.put("editarTarea", resultadoYJSP);
 
 		mapaDeNavegacion.put("USUARIO", opcionResultadoYJSP);
@@ -301,12 +315,12 @@ public class Controlador extends javax.servlet.http.HttpServlet {
 		resultadoYJSP.put("FRACASO", "/principalUsuario.jsp");
 		opcionResultadoYJSP.put("modificarStatus", resultadoYJSP);
 
-		/*
-		 * Futura impl resultadoYJSP=new HashMap<String, String>();
-		 * resultadoYJSP.put("EXITO","/listarUsuarios.jsp");
-		 * resultadoYJSP.put("FRACASO","/listarUsuarios.jsp");
-		 * opcionResultadoYJSP.put("ordenarUsuarios", resultadoYJSP);
-		 */
+		
+		 resultadoYJSP=new HashMap<String, String>();
+		 resultadoYJSP.put("EXITO","/listarUsuarios.jsp");
+		 resultadoYJSP.put("FRACASO","/listarUsuarios.jsp");
+		 opcionResultadoYJSP.put("ordenarUsuarios", resultadoYJSP);
+		 
 		resultadoYJSP = new HashMap<String, String>();
 		resultadoYJSP.put("EXITO", "/listarUsuarios.jsp");
 		resultadoYJSP.put("FRACASO", "/listarUsuarios.jsp");

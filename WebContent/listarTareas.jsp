@@ -15,6 +15,7 @@
     $( "#tabs" ).tabs();
   } );
   </script>
+  <title>TaskManager - Listado de tareas</title>
 </head>
 <body>
 
@@ -32,7 +33,7 @@
 				</tr>
 				<tr>
 					<td/>
-					<td><input type="submit" value="Enviar"></td>
+					<td><input id="enviarTarea" type="submit" value="Enviar"></td>
 				</tr>	
 			</form>
 		</table>			
@@ -79,7 +80,7 @@
 						<td>
 						<form action="editarTarea" method="POST">
 							<input type="hidden" name="tarea" value="${entry.id}">
-							<input type="submit" value="Editar">
+							<input id="editarTarea" type="submit" value="Editar">
 						</form>	
 						</td>
 				</tr>	

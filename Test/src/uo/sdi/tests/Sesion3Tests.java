@@ -63,8 +63,8 @@ public class Sesion3Tests {
     	
 
     	browser.beginAt("/");
-    	browser.assertLinkPresent("registrar_link_id");  
-    	browser.clickLink("registrar_link_id"); 
+    	browser.assertLinkPresent("registrarse_link_id");  
+    	browser.clickLink("registrarse_link_id"); 
     	
     	browser.assertTitleEquals("Registro");
     	
@@ -77,7 +77,7 @@ public class Sesion3Tests {
     	browser.setTextField("email", "browser@gmail.com");
     	browser.setTextField("pass", "browser123");
     	browser.setTextField("rePass", "browser123");
-    	browser.clickButton("registrar_button_id");
+    	browser.clickButton("registrarse_button_id");
     	
     	
 
@@ -89,14 +89,14 @@ public class Sesion3Tests {
     	WebTester browser=new WebTester();
     	
 		browser.beginAt("/"); 
-		browser.clickLink("registrar_link_id"); 
+		browser.clickLink("registrarse_link_id"); 
 		
 		browser.assertTitleEquals("Registro");
 
 		browser.setTextField("login", "browser");
 		browser.setTextField("email", "browser@gmail.com");
-		browser.setTextField("pass", "browser124");
-		browser.setTextField("rePass", "browser123");
+		browser.setTextField("password", "browser124");
+		browser.setTextField("password2", "browser123");
 		browser.clickButton("registrar_button_id"); 
 																		
 																	
@@ -105,25 +105,75 @@ public class Sesion3Tests {
 	
 	
 	@Test
-	public void adminListaUsuariosTest(){
+	public void adminListarUsuariosTest(){
 		admin.beginAt("/"); 
 		
 		admin.setTextField("nombreUsuario", "admin");
-		admin.setTextField("passUsuario", "admin123");
+		admin.setTextField("password", "admin123");
 		
 		admin.clickButton("validar_button_id"); 
 		admin.clickLink("listarUsuarios_link_id");
 		
-		admin.assertLinkPresent("login_link_id");
-		admin.assertLinkPresent("email_link_id");
-		admin.assertLinkPresent("status_link_id");
+		admin.clickLink("paginaAnterior_link_id");
+		admin.clickLink("cerrarSesion_link_id"); 
+	}
+	
+	@Test
+	public void adminEliminarUsuarioTest(){
+		admin.beginAt("/"); 
+		admin.setTextField("nombreUsuario", "administrador1");
+		admin.setTextField("password", "administrador1");
+		admin.clickButton("validar_button_id"); 
+		admin.clickLink("listarUsuarios_link_id"); 
 		
-		admin.clickLink("login_link_id");
-		admin.clickLink("email_link_id");
-		admin.clickLink("status_link_id");
+		admin.assertLinkPresent("delete_link_id1");//Borra el primer usuario
+		
+		admin.clickLink("paginaAnterior_link_id");
+		admin.clickLink("cerrarSesion_link_id");
+		admin.assertTitleEquals("TaskManager - Inicie sesión");		
+	}
+	
+	@Test
+	public void adminCambiarEstadoTest(){
+		
+		admin.beginAt("/");
+		admin.setTextField("nombreUsuario", "administrador1");
+		admin.setTextField("password", "administrador1");
+		admin.clickButton("validar_button_id");
+		admin.clickLink("listarUsuarios_link_id");
+		
+		admin.assertLinkPresent("status_link_id1");
+		admin.assertLinkNotPresentWithExactText("DISABLED");
+		admin.clickLink("status_link_id1"); 
+		admin.assertLinkPresentWithExactText("DISABLED");
+		admin.clickLink("status_link_id1"); 
+		admin.assertLinkPresentWithExactText("ENABLED");
 		
 		admin.clickLink("paginaAnterior_link_id");
 		admin.clickLink("cerrarSesion_link_id"); 
+		admin.assertTitleEquals("TaskManager - Inicie sesión");		
+	}
+	
+	
+	
+	@Test
+	public void tareaNavigationTest() {
+		
+		task.assertTitleEquals("TaskManager - Página principal del usuario");
+		task.assertLinkPresent("listarTareas_link_id");//Tareas
+		task.assertLinkNotPresent("listarUsuarios_link_id"); //Usuarios
+		task.clickLink("listarTareas_link_id");//Accedemos
+		
+		task.assertTitleEquals("TaskManager - Listado de tareas");
+		task.assertTextPresent("Titulo");
+		task.assertTextPresent("Comentario");
+		task.assertTextPresent("Categoria");
+		task.assertTextPresent("Creada");
+		task.assertTextPresent("Planeada");
+		task.assertTextPresent("Terminar");
+		task.assertButtonPresent("enviarTarea_button_id");//Boton creacion
+		task.assertButtonPresent("editarTarea_button_id");//Boton creacion
+
 	}
 
 }

@@ -10,7 +10,7 @@
 
 <body>
 	<div class="container">
-			<h1 align="center">Registrarse</h1>
+			<h1 align="center">TaskManager - Registro de Usuario</h1>
 			
 		<form action="registrarUsuario" method="POST">
 			<table style="width: 50%" align="center">
@@ -35,7 +35,7 @@
 				</tr>
 				<tr>
 					<td/>
-					<td><input type="submit" placeholder="Registrarse"></td>
+					<td><input id="registrarse_link_id" type="submit" placeholder="Registrarse"></td>
 				</tr>
 			</table>
 		</form>

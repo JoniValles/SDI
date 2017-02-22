@@ -19,7 +19,7 @@ public class RegistrarUsuarioAction implements Accion {
 		String login = request.getParameter("login");
 		String email = request.getParameter("email");
 		String password = request.getParameter("pass");
-		String password2 = request.getParameter("rePass");
+		String password2 = request.getParameter("password");
 		UserService userService = Services.getUserService();
 
 		
@@ -47,6 +47,16 @@ public class RegistrarUsuarioAction implements Accion {
 				resultado = "FRACASO";
 				return resultado;
 				} 
+			else if (!password.matches(".*[a-zA-Z].*")
+					|| !password.matches(".*[0-9].*")) 
+			{
+				request.setAttribute("mensajeParaElUsuario",
+						"La contraseña debe contener letras y números.");
+				resultado = "FRACASO";
+				
+				
+				return resultado;
+			}
 		}
 
 		try {

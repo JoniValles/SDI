@@ -52,13 +52,13 @@
 		
 				<c:if test="${user.getIsAdmin()==true}">
 			<div>
-				<a href="listarUsuarios">Listar usuarios</a>
+				<a id="listarUsuarios_link_id" href="listarUsuarios">Listar usuarios</a>
 			</div>
 		</c:if>
 		
 		<c:if test="${user.getIsAdmin()!=true}">
 			<div>
-				<a id="listarUsuarios_link_id" href="listarTareas">Listar tareas</a>
+				<a id="listarTareas_link_id" href="listarTareas">Listar tareas</a>
 			</div>
 		</c:if>
 		
@@ -68,7 +68,7 @@
 		
 	</table>
 	<br/>	
-	<a href="cerrarSesion">Cerrar sesión</a>
+	<a href="cerrarSesion" id="cerrarSesion_link_id">Cerrar sesión</a>
 	
 	<%@ include file="pieDePagina.jsp" %>
 </body>
